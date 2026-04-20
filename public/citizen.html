@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citizen | AquaSmart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <nav>
+        <div class="nav-brand">AquaSmart <span style="color:#fff; font-size:1rem; font-weight:400;">| Citizen Dashboard</span></div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+
+    <div class="dashboard-wrapper">
+        <div class="glass-container" style="max-width: 100%;">
+            <h2>Report Water Crisis</h2>
+            <form id="complaintForm">
+                <div class="stats-grid" style="margin-bottom:0;">
+                    <div class="form-group">
+                        <label>Area Name</label>
+                        <input type="text" id="areaName" required placeholder="E.g., Downtown Sector 4">
+                    </div>
+                    <div class="form-group">
+                        <label>Severity Level</label>
+                        <select id="severityLevel" required>
+                            <option value="Low">Low (Minor Delay)</option>
+                            <option value="Moderate">Moderate (Supply cut for 1-2 days)</option>
+                            <option value="High">High (No water >2 days)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="description" rows="3" required placeholder="Provide details about the crisis..."></textarea>
+                </div>
+                <button type="submit" class="btn">Submit Report</button>
+            </form>
+        </div>
+
+        <div class="glass-container" style="max-width: 100%;">
+            <h2>My Reports</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Area</th>
+                        <th>Severity</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="complaintList">
+                    <!-- Dynamic Rows -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/citizen.js"></script>
+</body>
+</html>

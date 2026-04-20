@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaSmart | Water Crisis Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <div class="glass-container" id="authBox">
+        <h1 id="formTitle">Welcome Back</h1>
+        <p style="text-align: center; margin-bottom: 30px;" id="formSubtitle">Login to your centralized dashboard.</p>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="loginEmail" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="loginPassword" required placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <p style="text-align: center; margin-top: 15px;">
+                <a href="forgot-password.html" style="color: var(--primary); text-decoration: none;">Forgot Password?</a>
+            </p>
+            <p style="text-align: center; margin-top: 10px;">
+                Don't have an account? <a href="#" id="showRegister" style="color: var(--primary);">Register Now</a>
+            </p>
+        </form>
+
+        <!-- Register Form (Hidden by Default) -->
+        <form id="registerForm" style="display: none;">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="regName" required placeholder="Enter full name">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="regEmail" required placeholder="Enter email address">
+            </div>
+            <div class="form-group">
+                <label>Role</label>
+                <select id="regRole" required>
+                    <option value="Citizen">Citizen</option>
+                    <option value="Authority">Authority</option>
+                    <option value="NGO">NGO</option>
+                    <option value="Admin">Admin</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="regPassword" required placeholder="Create a password">
+            </div>
+            <button type="submit" class="btn">Register</button>
+            <p style="text-align: center; margin-top: 20px;">
+                Already have an account? <a href="#" id="showLogin" style="color: var(--primary);">Login Here</a>
+            </p>
+        </form>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>

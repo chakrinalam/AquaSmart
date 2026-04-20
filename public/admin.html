@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | AquaSmart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="toast-container" id="toastContainer"></div>
+
+    <nav>
+        <div class="nav-brand">AquaSmart <span style="color:#fff; font-size:1rem; font-weight:400;">| System Administration</span></div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </nav>
+
+    <div class="dashboard-wrapper">
+        <!-- Overview Stats Grid -->
+        <div class="stats-grid" id="adminStatsGrid">
+            <!-- Dynamic Data -->
+        </div>
+
+        <div style="display:flex; gap: 20px; flex-wrap: wrap;">
+            <div class="glass-container" style="flex: 1; min-width: 400px;">
+                <h2>Complaint Status Distribution</h2>
+                <canvas id="statusChart" width="400" height="200"></canvas>
+            </div>
+            
+            <div class="glass-container" style="flex: 1; min-width: 400px;">
+                <h2>System Users Overview</h2>
+                <canvas id="usersChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
