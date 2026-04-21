@@ -35,6 +35,7 @@ app.use(express.static('public'));
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/complaints', require('./routes/complaintRoutes'));
 app.use('/api/stats', require('./routes/statsRoutes'));
+app.use('/api/risk-zones', require('./routes/riskZoneRoutes'));
 
 // Socket.io Connection
 io.on('connection', (socket) => {

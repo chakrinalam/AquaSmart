@@ -17,11 +17,67 @@
     </nav>
 
     <div class="dashboard-wrapper">
-        <!-- Risk Zones Dashboard -->
+        <!-- Enhanced Risk Zones Dashboard -->
         <div class="glass-container" style="max-width: 100%;">
-            <h2>Live Risk Zones Analysis</h2>
+            <div class="dashboard-header">
+                <h2>Live Risk Zones Analysis</h2>
+                <div class="dashboard-controls">
+                    <select id="riskFilter" onchange="filterRiskZones()" style="padding:8px; border-radius:5px; margin-right:10px;">
+                        <option value="all">All Risk Levels</option>
+                        <option value="high">High Risk Only</option>
+                        <option value="moderate">Moderate Risk Only</option>
+                        <option value="low">Low Risk Only</option>
+                    </select>
+                    <button onclick="refreshRiskData()" class="btn" style="padding:8px 16px;">Refresh Data</button>
+                </div>
+            </div>
+            
+            <!-- Risk Summary Cards -->
+            <div class="risk-summary" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 25px;">
+                <div class="risk-card high-risk">
+                    <h3>High Risk Zones</h3>
+                    <div class="risk-count" id="highRiskCount">0</div>
+                    <p>Areas requiring immediate attention</p>
+                </div>
+                <div class="risk-card moderate-risk">
+                    <h3>Moderate Risk Zones</h3>
+                    <div class="risk-count" id="moderateRiskCount">0</div>
+                    <p>Areas under monitoring</p>
+                </div>
+                <div class="risk-card low-risk">
+                    <h3>Low Risk Zones</h3>
+                    <div class="risk-count" id="lowRiskCount">0</div>
+                    <p>Areas with stable water supply</p>
+                </div>
+                <div class="risk-card total-complaints">
+                    <h3>Total Complaints</h3>
+                    <div class="risk-count" id="totalComplaintsCount">0</div>
+                    <p>Active water crisis reports</p>
+                </div>
+            </div>
+
+            <!-- Interactive Risk Grid -->
             <div class="stats-grid" id="riskGrid">
                 <!-- Dynamically populated -->
+            </div>
+
+            <!-- Risk Map Section -->
+            <div class="risk-map-section" style="margin-top: 30px;">
+                <h3>Risk Zone Map</h3>
+                <div id="riskMap" style="height: 400px; background: #f0f0f0; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #666;">
+                    <div>
+                        <p>Interactive Map Loading...</p>
+                        <small>Areas will be color-coded by risk level</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Risk Trends -->
+            <div class="risk-trends" style="margin-top: 30px;">
+                <h3>7-Day Risk Trends</h3>
+                <div id="riskTrendsChart" style="height: 250px; background: #f9f9f9; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #666;">
+                    <p>Risk trend analysis chart will be displayed here</p>
+                </div>
             </div>
         </div>
 
